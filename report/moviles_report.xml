@@ -1,0 +1,26 @@
+<odoo>
+    <record id="odoo_x.moviles_report" model="ir.actions.report">
+        <field name="name"> Informe de moviles</field>
+        <field name="model">odoo_x.moviles</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_x.moviles_report_view</field>
+        <field name="report_file">odoo_x.moviles_report</field>
+        <field name="binding_model_id" ref="model_odoo_x_moviles"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="moviles_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Moviles </h1><br />
+                <t t-foreach="docs" t-as="moviles">
+                    <ul>
+                        <li>    Nombre: <span t-field="moviles.name" /></li>
+                        <li>    Marca: <span t-field="moviles.marca" /></li>
+                        <li>    Precio: <span t-field="moviles.precio" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,26 @@
+<odoo>
+    <record id="odoo_x.cables_report" model="ir.actions.report">
+        <field name="name"> Informe de cables</field>
+        <field name="model">odoo_x.cables</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_x.cables_report_view</field>
+        <field name="report_file">odoo_x.cables_report</field>
+        <field name="binding_model_id" ref="model_odoo_x_cables"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="cables_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Cables </h1><br />
+                <t t-foreach="docs" t-as="cables">
+                    <ul>
+                        <li>    Nombre: <span t-field="cables.name" /></li>
+                        <li>    Tipo: <span t-field="cables.tipo" /></li>
+                        <li>    Precio: <span t-field="cables.precio" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,779 @@
+<odoo>
+  <data>
+    <!--Model 1-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.empresa_list_view">
+      <field name="name">odoo_x.empresa.view.tree</field>
+      <field name="model">odoo_x.empresa</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="locales_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.empresa_search_view">
+      <field name="name">odoo_x.empresa.view.search</field>
+      <field name="model">odoo_x.empresa</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="locales_id"/>
+          <group>
+            <filter name="group_by_name" string="name" context="{'gropup_by':'name'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.empresa_form_view">
+      <field name="name">odoo_x.empresa.view.form</field>
+      <field name="model">odoo_x.empresa</field>
+      <field name="arch" type="xml">
+        <form string="Información empresa">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="locales_id" placeholder="Locales"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.empresa_action_window">
+      <field name="name">Empresa</field>
+      <field name="res_model">odoo_x.empresa</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Empresas" id="odoo_x.menu_empresa" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_empresa_list" parent="odoo_x.menu_empresa"
+              action="odoo_x.empresa_action_window"/>
+
+    <!--Model 2-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.locales_list_view">
+      <field name="name">odoo_x.locales.view.tree</field>
+      <field name="model">odoo_x.locales</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="lugar"/>
+          <field name="empresa_id"/>
+          <field name="empleados_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.locales_search_view">
+      <field name="name">odoo_x.locales.view.search</field>
+      <field name="model">odoo_x.locales</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="lugar"/>
+          <field name="empresa_id"/>
+          <field name="empleados_id"/>
+          <group>
+            <filter name="group_by_name" string="name" context="{'gropup_by':'name'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.locales_form_view">
+      <field name="name">odoo_x.locales.view.form</field>
+      <field name="model">odoo_x.locales</field>
+      <field name="arch" type="xml">
+        <form string="Información locales">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                ID <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="lugar" placeholder="Lugar"/>
+                <field name="empresa_id" placeholder="Empresa"/>
+                <field name="empleados_id" placeholder="Empleados"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.locales_action_window">
+      <field name="name">Locales</field>
+      <field name="res_model">odoo_x.locales</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Locales" id="odoo_x.menu_locales" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_locales_list" parent="odoo_x.menu_locales"
+              action="odoo_x.locales_action_window"/>
+
+    <!--Model 3-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.empleados_list_view">
+      <field name="name">odoo_x.empleados.view.tree</field>
+      <field name="model">odoo_x.empleados</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="locales_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.empleados_search_view">
+      <field name="name">odoo_x.empleados.view.search</field>
+      <field name="model">odoo_x.empleados</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="locales_id"/>
+          <group>
+            <filter name="group_by_name" string="name" context="{'gropup_by':'name'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.empleados_form_view">
+      <field name="name">odoo_x.empleados.view.form</field>
+      <field name="model">odoo_x.empleados</field>
+      <field name="arch" type="xml">
+        <form string="Información empleados">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="locales_id" placeholder="Locales"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.empleados_action_window">
+      <field name="name">Empleados</field>
+      <field name="res_model">odoo_x.empleados</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Empleados" id="odoo_x.menu_empleados" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_empleados_list" parent="odoo_x.menu_empleados"
+              action="odoo_x.empleados_action_window"/>
+
+    <!--Model 4-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.clientes_list_view">
+      <field name="name">odoo_x.clientes.view.tree</field>
+      <field name="model">odoo_x.clientes</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="numero"/>
+          <field name="pagos_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.clientes_search_view">
+      <field name="name">odoo_x.clientes.view.search</field>
+      <field name="model">odoo_x.clientes</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="numero"/>
+          <field name="pagos_id"/>
+          <group>
+            <filter name="group_by_name" string="name" context="{'gropup_by':'name'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.clientes_form_view">
+      <field name="name">odoo_x.clientes.view.form</field>
+      <field name="model">odoo_x.clientes</field>
+      <field name="arch" type="xml">
+        <form string="Información clientes">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="numero" placeholder="Numero"/>
+                <field name="pagos_id" placeholder="Pagos"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.clientes_action_window">
+      <field name="name">Clientes</field>
+      <field name="res_model">odoo_x.clientes</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Clientes" id="odoo_x.menu_clientes" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_clientes_list" parent="odoo_x.menu_clientes"
+              action="odoo_x.clientes_action_window"/>
+
+    <!--Model 5-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.pagos_list_view">
+      <field name="name">odoo_x.pagos.view.tree</field>
+      <field name="model">odoo_x.pagos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="clientes_id"/>
+          <field name="cesta_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.pagos_search_view">
+      <field name="name">odoo_x.pagos.view.search</field>
+      <field name="model">odoo_x.pagos</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="clientes_id"/>
+          <field name="cesta_id"/>
+          <group>
+            <filter name="group_by_name" string="name" context="{'gropup_by':'name'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.pagos_form_view">
+      <field name="name">odoo_x.pagos.view.form</field>
+      <field name="model">odoo_x.pagos</field>
+      <field name="arch" type="xml">
+        <form string="Información pagos">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                ID <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="clientes_id" placeholder="Clientes"/>
+                <field name="cesta_id" placeholder="Cesta"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.pagos_action_window">
+      <field name="name">Pagos</field>
+      <field name="res_model">odoo_x.pagos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Pagos" id="odoo_x.menu_pagos" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_pagos_list" parent="odoo_x.menu_pagos"
+              action="odoo_x.pagos_action_window"/>
+
+    <!--Model 6-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.cesta_list_view">
+      <field name="name">odoo_x.cesta.view.tree</field>
+      <field name="model">odoo_x.cesta</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="ordenadores_id"/>
+          <field name="ratones_id"/>
+          <field name="moviles_id"/>
+          <field name="cables_id"/>
+          <field name="pagos_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.cesta_search_view">
+      <field name="name">odoo_x.cesta.view.search</field>
+      <field name="model">odoo_x.cesta</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="ordenadores_id"/>
+          <field name="ratones_id"/>
+          <field name="moviles_id"/>
+          <field name="cables_id"/>
+          <field name="pagos_id"/>
+          <group>
+            <filter name="group_by_name" string="pagos_id" context="{'gropup_by':'pagos_id'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.cesta_form_view">
+      <field name="name">odoo_x.cesta.view.form</field>
+      <field name="model">odoo_x.cesta</field>
+      <field name="arch" type="xml">
+        <form string="Información cesta">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                ID <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="ordenadores_id" placeholder="Ordenadores"/>
+                <field name="ratones_id" placeholder="Ratones"/>
+                <field name="moviles_id" placeholder="Moviles"/>
+                <field name="cables_id" placeholder="Cables"/>
+                <field name="pagos_id" placeholder="Pagos"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.cesta_action_window">
+      <field name="name">Cesta</field>
+      <field name="res_model">odoo_x.cesta</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Cesta" id="odoo_x.menu_cesta" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_cesta_list" parent="odoo_x.menu_cesta"
+              action="odoo_x.cesta_action_window"/>
+
+    <!--Model 7-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.ordenadores_list_view">
+      <field name="name">odoo_x.ordenadores.view.tree</field>
+      <field name="model">odoo_x.ordenadores</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="marca"/>
+          <field name="precio"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.ordenadores_search_view">
+      <field name="name">odoo_x.ordenadores.view.search</field>
+      <field name="model">odoo_x.ordenadores</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="marca"/>
+          <field name="precio"/>
+          <group>
+            <filter name="group_by_name" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.ordenadores_form_view">
+      <field name="name">odoo_x.ordenadores.view.form</field>
+      <field name="model">odoo_x.ordenadores</field>
+      <field name="arch" type="xml">
+        <form string="Información ordenadores">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="marca" placeholder="Marca"/>
+                <field name="precio" placeholder="Precio"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.ordenadores_action_window">
+      <field name="name">Ordenadores</field>
+      <field name="res_model">odoo_x.ordenadores</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Ordenadores" id="odoo_x.menu_ordenadores" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_ordenadores_list" parent="odoo_x.menu_ordenadores"
+              action="odoo_x.ordenadores_action_window"/>
+
+    <!--Model 8-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.ratones_list_view">
+      <field name="name">odoo_x.ratones.view.tree</field>
+      <field name="model">odoo_x.ratones</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="marca"/>
+          <field name="precio"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.ratones_search_view">
+      <field name="name">odoo_x.ratones.view.search</field>
+      <field name="model">odoo_x.ratones</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="marca"/>
+          <field name="precio"/>
+          <group>
+            <filter name="group_by_name" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.ratones_form_view">
+      <field name="name">odoo_x.ratones.view.form</field>
+      <field name="model">odoo_x.ratones</field>
+      <field name="arch" type="xml">
+        <form string="Información ratones">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="marca" placeholder="Marca"/>
+                <field name="precio" placeholder="Precio"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.ratones_action_window">
+      <field name="name">Ratones</field>
+      <field name="res_model">odoo_x.ratones</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Ratones" id="odoo_x.menu_ratones" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_ratones_list" parent="odoo_x.menu_ratones"
+              action="odoo_x.ratones_action_window"/>
+
+    <!--Model 9-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.moviles_list_view">
+      <field name="name">odoo_x.moviles.view.tree</field>
+      <field name="model">odoo_x.moviles</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="marca"/>
+          <field name="precio"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.moviles_search_view">
+      <field name="name">odoo_x.moviles.view.search</field>
+      <field name="model">odoo_x.moviles</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="marca"/>
+          <field name="precio"/>
+          <group>
+            <filter name="group_by_name" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.moviles_form_view">
+      <field name="name">odoo_x.moviles.view.form</field>
+      <field name="model">odoo_x.moviles</field>
+      <field name="arch" type="xml">
+        <form string="Información moviles">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="marca" placeholder="Marca"/>
+                <field name="precio" placeholder="Precio"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.moviles_action_window">
+      <field name="name">Moviles</field>
+      <field name="res_model">odoo_x.moviles</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Moviles" id="odoo_x.menu_moviles" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_moviles_list" parent="odoo_x.menu_moviles"
+              action="odoo_x.moviles_action_window"/>
+
+    <!--Model 10-->
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_x.cables_list_view">
+      <field name="name">odoo_x.cables.view.tree</field>
+      <field name="model">odoo_x.cables</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="tipo"/>
+          <field name="precio"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="odoo_x.cables_search_view">
+      <field name="name">odoo_x.cables.view.search</field>
+      <field name="model">odoo_x.cables</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="tipo"/>
+          <field name="precio"/>
+          <group>
+            <filter name="group_by_name" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo_x.cables_form_view">
+      <field name="name">odoo_x.cables.view.form</field>
+      <field name="model">odoo_x.cables</field>
+      <field name="arch" type="xml">
+        <form string="Información cables">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="tipo" placeholder="Tipo"/>
+                <field name="precio" placeholder="Precio"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_x.cables_action_window">
+      <field name="name">Cables</field>
+      <field name="res_model">odoo_x.cables</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <menuitem name="odoo_x" id="odoo_x.menu_root"/>
+    <menuitem name="Cables" id="odoo_x.menu_cables" parent="odoo_x.menu_root"/>
+    <menuitem name="Lista" id="odoo_x.menu_cables_list" parent="odoo_x.menu_cables"
+              action="odoo_x.cables_action_window"/>
+  </data>
+</odoo>

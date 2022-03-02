@@ -1,0 +1,26 @@
+<odoo>
+    <record id="odoo_x.pagos_report" model="ir.actions.report">
+        <field name="name"> Informe de pagos</field>
+        <field name="model">odoo_x.pagos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_x.pagos_report_view</field>
+        <field name="report_file">odoo_x.pagos_report</field>
+        <field name="binding_model_id" ref="model_odoo_x_pagos"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="pagos_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Pagos </h1><br />
+                <t t-foreach="docs" t-as="pagos">
+                    <ul>
+                        <li>    ID: <span t-field="pagos.name" /></li>
+                        <li>    Cliente: <span t-field="pagos.clientes_id" /></li>
+                        <li>    Cesta: <span t-field="pagos.cesta_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

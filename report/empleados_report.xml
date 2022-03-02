@@ -1,0 +1,25 @@
+<odoo>
+    <record id="odoo_x.empleados_report" model="ir.actions.report">
+        <field name="name"> Informe de empleados</field>
+        <field name="model">odoo_x.empleados</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_x.empleados_report_view</field>
+        <field name="report_file">odoo_x.empleados_report</field>
+        <field name="binding_model_id" ref="model_odoo_x_empleados"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="empleados_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Locales </h1><br />
+                <t t-foreach="docs" t-as="empleados">
+                    <ul>
+                        <li>    Nombre: <span t-field="empleados.name" /></li>
+                        <li>    Local: <span t-field="empleados.locales_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

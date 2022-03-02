@@ -1,0 +1,29 @@
+<odoo>
+    <record id="odoo_x.cesta_report" model="ir.actions.report">
+        <field name="name"> Informe de cestas</field>
+        <field name="model">odoo_x.cesta</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_x.cesta_report_view</field>
+        <field name="report_file">odoo_x.cesta_report</field>
+        <field name="binding_model_id" ref="model_odoo_x_cesta"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="cesta_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Cestas </h1><br />
+                <t t-foreach="docs" t-as="cesta">
+                    <ul>
+                        <li>    ID: <span t-field="cesta.name" /></li>
+                        <li>    Ordenadores: <span t-field="cesta.ordenadores_id" /></li>
+                        <li>    Ratones: <span t-field="cesta.ratones_id" /></li>
+                        <li>    Moviles: <span t-field="cesta.moviles_id" /></li>
+                        <li>    Cables: <span t-field="cesta.cables_id" /></li>
+                        <li>    Pagos: <span t-field="cesta.pagos_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
